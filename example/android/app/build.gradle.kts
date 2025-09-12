@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "ch.waio.pro_image_editor_example"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 36
     ndkVersion = flutter.ndkVersion
 
     compileOptions {

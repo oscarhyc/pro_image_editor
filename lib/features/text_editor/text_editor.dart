@@ -115,7 +115,7 @@ class TextEditorState extends State<TextEditor>
     _rebuildController = StreamController.broadcast();
     align = textEditorConfigs.initialTextAlign;
     _fontScale = textEditorConfigs.initFontScale;
-    backgroundColorMode = textEditorConfigs.initialBackgroundColorMode;
+    backgroundColorMode = LayerBackgroundMode.onlyColor; // Set to transparent by default
 
     selectedTextStyle = widget.layer?.textStyle ??
         textEditorConfigs.customTextStyles?.first ??
