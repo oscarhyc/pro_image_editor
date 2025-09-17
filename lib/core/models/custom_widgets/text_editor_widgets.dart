@@ -36,6 +36,7 @@ class TextEditorWidgets extends CustomWidgetsStandaloneEditor<TextEditorState> {
     super.bottomBar,
     super.bodyItems,
     this.colorPicker,
+    this.fontSizePicker,
     this.sliderFontSize,
     this.fontSizeCloseButton,
   });
@@ -44,6 +45,11 @@ class TextEditorWidgets extends CustomWidgetsStandaloneEditor<TextEditorState> {
   ///
   /// {@macro colorPickerWidget}
   final CustomColorPicker<TextEditorState>? colorPicker;
+
+  /// A custom font size picker widget for the text editor.
+  ///
+  /// {@macro fontSizePickerWidget}
+  final CustomFontSizePicker<TextEditorState>? fontSizePicker;
 
   /// Custom close button to close the font-size bottom sheet.
   ///
@@ -76,6 +82,7 @@ class TextEditorWidgets extends CustomWidgetsStandaloneEditor<TextEditorState> {
         bottomBar,
     CustomBodyItems<TextEditorState>? bodyItems,
     CustomColorPicker<TextEditorState>? colorPicker,
+    CustomFontSizePicker<TextEditorState>? fontSizePicker,
     CustomSlider<TextEditorState>? sliderFontSize,
     Widget Function(TextEditorState editorState, Function() tap)?
         fontSizeCloseButton,
@@ -85,6 +92,7 @@ class TextEditorWidgets extends CustomWidgetsStandaloneEditor<TextEditorState> {
       bottomBar: bottomBar ?? this.bottomBar,
       bodyItems: bodyItems ?? this.bodyItems,
       colorPicker: colorPicker ?? this.colorPicker,
+      fontSizePicker: fontSizePicker ?? this.fontSizePicker,
       sliderFontSize: sliderFontSize ?? this.sliderFontSize,
       fontSizeCloseButton: fontSizeCloseButton ?? this.fontSizeCloseButton,
     );

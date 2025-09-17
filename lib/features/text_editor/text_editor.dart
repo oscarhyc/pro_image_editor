@@ -9,6 +9,7 @@ import '/core/mixins/converted_configs.dart';
 import '/core/mixins/editor_configs_mixin.dart';
 import '/features/text_editor/widgets/text_editor_appbar.dart';
 import '/features/text_editor/widgets/text_editor_color_picker.dart';
+import '/features/text_editor/widgets/text_editor_font_size_picker.dart';
 import '/features/text_editor/widgets/text_editor_input.dart';
 import '/pro_image_editor.dart';
 import '/shared/extensions/color_extension.dart';
@@ -404,6 +405,7 @@ class TextEditorState extends State<TextEditor>
                 _rebuildController.stream,
               ),
             _buildTextField(),
+            _buildFontSizePicker(),
             _buildColorPicker(),
             if (textEditorConfigs.showSelectFontStyleBottomBar)
               Positioned(
@@ -421,6 +423,19 @@ class TextEditorState extends State<TextEditor>
         ),
       );
     });
+  }
+
+  Widget _buildFontSizePicker() {
+    return TextEditorFontSizePicker(
+      state: this,
+      configs: configs,
+      fontScale: fontScale,
+      rebuildController: _rebuildController,
+      selectedTextStyle: selectedTextStyle,
+      onUpdateFontSize: (fontScale) {
+        this.fontScale = fontScale;
+      },
+    );
   }
 
   Widget _buildColorPicker() {

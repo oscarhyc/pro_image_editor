@@ -301,3 +301,41 @@ typedef CustomBodyItems<T> = List<ReactiveWidget> Function(
   T editor,
   Stream<void> rebuildStream,
 );
+
+/// A typedef for creating a [ReactiveWidget] that includes a custom
+/// font size picker.
+///
+/// - [T] - The type representing the editor state.
+///
+/// {@template fontSizePickerWidget}
+/// - [editorState] - The current state of the editor.
+/// - [rebuildStream] - A [Stream] that triggers the widget to rebuild.
+/// - [currentFontScale] - The currently selected font scale.
+/// - [setFontScale] - A function to update the selected font scale.
+///
+/// Returns an optional [ReactiveWidget] that provides a custom font
+/// size picker.
+///
+/// **Example:**
+/// ```dart
+/// fontSizePicker: (editor, rebuildStream, currentFontScale, setFontScale) =>
+///    ReactiveWidget(
+///      stream: rebuildStream,
+///      builder: (_) => BarFontSizePicker(
+///        configs: editor.configs,
+///        length: 200,
+///        horizontal: false,
+///        fontScale: currentFontScale,
+///        fontSizeListener: (double value) {
+///          setFontScale(value);
+///        },
+///      ),
+/// ),
+/// ```
+/// {@endtemplate}
+typedef CustomFontSizePicker<T> = ReactiveWidget? Function(
+  T editorState,
+  Stream<void> rebuildStream,
+  double currentFontScale,
+  void Function(double fontScale) setFontScale,
+);
